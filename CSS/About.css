@@ -1,0 +1,14 @@
+/* self documenting class name */
+.newspaper {
+    margin-left:50px;
+    margin-top:50px;
+    margin-right:50px;
+    margin-bottom:50px;
+    background-color:#F5F2E8;
+    color:#000;
+}
+
+/* gives the headings a distinct look */
+.newspaper > h1, .newspaper > h2, .newspaper > h3, .newspaper > h4, .newspaper > h5  {
+font-family: playfair;
+}
