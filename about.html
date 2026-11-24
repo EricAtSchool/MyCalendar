@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+<!--Website Name: My Calendar 📅
+    Author: Eric Miller
+    Date:   08/26/26
+    Filename: Test.html  (Provides template)-->
+    <link rel="icon" type="image/x-icon" href="Images/Icons/favicon.png" />
+    <title>My Calendar</title>  
+    <!-- External resources -->
+    <script src="ExternalResources/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="ExternalResources/bootstrap.min.css" />
+
+    <!-- Global JS files, for cross page behavior used by the entire site as a whole. -->
+    <script defer src="JS/global.js" type="text/javascript"></script>
+    <script defer src="JS/animations.js" type="text/javascript"></script>
+    <!-- global styles -->
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/animations.css" />
+
+    <!-- page specific resources (if any) -->
+    <link rel="stylesheet" href="CSS/about.css" />
+</head>
+
+<body id="body">
+<!-- <aside>options controls? (Toggle elements, or change style)</aside> -->
+ 
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html" title="Logo branding, takes you to home page when clicked.">My Calendar 📅</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul id="MainNav" class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li id="MyCalendarLink" class="nav-item"><a class="nav-link" href="calendar.html" Title="Opens your calendar. (Should only show when logged in)">Go to calendar</a></li>
+              <li id="MessageBoardLink" class="nav-item"><a class="nav-link" href="messageboard.html" title="Opens the message board. (Should only show when logged in)">Message board</a></li>
+              <li id="NewUserLink" class="nav-item"><a class="nav-link" href="newuser.html" title="Is exactly what you think it is. (Show when NOT logged in only)">New user</a></li>
+              <li id="LoginLink" class="nav-item"><a class="nav-link" href="login.html" title="Is exactly what you think it is. (Show when NOT logged in only)">Log in</a></li>
+              <li id="aboutLink" class="nav-item"><a class="nav-link" href="about.html" title="learn about the project design">About</a></li>
+            </ul>
+          </div>
+          
+        </div>
+        <input id="LogoutBtn" type="button" onclick="logout();" value="logout" class="btn btn-primary" />
+      </nav>
+    </header>
+
+<main class="newspaper">
+
+  <h1>Introduction</h1>
+
+    <p>When I started out on this project, I had a clear vision of what I wanted to make before sketching the first draft.
+       I wanted a functional Calendar/Message board that I could use. Something that didn’t rely on the internet, but reminded me of the old internet;
+        something that could be used in a local/lan setting. inspired, creative, but most of all, entertaining and useful.
+    </p>
+
+  <h1>Background</h1>
+
+    <p>The internet used to be simpler, and fun. You didn’t have to create 100 logins and use a phone number or recovery email creating an endless chain of tech that would break the second you forgot one password. 1 website used to have 1 login. My website will follow that simplistic pattern.
+    Additionally, in today’s day and age, time is fast becoming the ultimate luxury, and is ever more valuable as the economy dwindles… So I thought, why not develop an app to make better use of that time? Instead of having to fumble through all these different apps, just have 1 that can be very simple and easy to use.
+    </p>
+    
+  <h1>Inspiration</h1>
+
+    <p>
+    My main inspiration for this calendar is Animal Crossing ™️ (Gamecube). As silly as that may sound, that game was entirely based around real time and date, using a calendar to control every event in the game. It made you value the time you spent more. The game had a sort of intranet that I don’t have the exact words to explain. Basically, it’s async single player as multiplayer. Only 1 person could play at a time, but you would share the same physical hardware. Through saved data local to the machine, you could interact. This is the inspiration for the message board feature I added.
+    </p>
+
+  <h1>Challenges faced</h1>
+    
+    <p>There was a lot of small challenges faced that are already documented in comments, but here’s the major breakdown:</p>
+    <ul>
+      <li>Login/Logout & global.js</li>
+      <ul>
+        <li>One major issue I encountered was scope. The login.js was called everywhere initially, but I improved it to only call code for it’s html page. I moved some of the login checking code to global.js since it made more since to check it in a file that is ran on every page.</li>
+        <li>Had to use cookies to overcome the challenge of not having a backend. This will help for simplicity though, so it ended up being beneficial to do it this way.</li>
+      </ul>
+    </ul>	
+
+
+</main>
+<footer> Copyright ™️Swanky boi productions©️😎 </footer>
+</body>
+</html>

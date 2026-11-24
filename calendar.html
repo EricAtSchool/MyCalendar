@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+<!--Website Name: My Calendar 📅
+    Author: Eric Miller
+    Date:   08/26/26
+    Filename: Test.html  (Provides template)-->
+    <link rel="icon" type="image/x-icon" href="Images/Icons/favicon.png" />
+    <title>My Calendar</title>  
+    <!-- External resources -->
+    <script src="ExternalResources/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="ExternalResources/bootstrap.min.css" />
+
+    <!-- Global files, for cross page behavior used by the entire site as a whole. -->
+    <script src="JS/global.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="CSS/global.css" />
+
+    <!-- page specific resources (if any) -->
+    <link rel="stylesheet" href="CSS/print.css" media="print" />
+    <link rel="stylesheet" href="CSS/calendar.css" />
+    <link rel="stylesheet" href="CSS/animations.css" />
+    <script src="JS/calendar.js" type="text/javascript" defer></script>
+</head>
+<body>
+    
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html" title="Logo branding, takes you to home page when clicked.">My Calendar 📅</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul id="MainNav" class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li id="MyCalendarLink" class="nav-item"><a class="nav-link" href="calendar.html" Title="Opens your calendar. (Should only show when logged in)">Go to calendar</a></li>
+              <li id="MessageBoardLink" class="nav-item"><a class="nav-link" href="messageboard.html" title="Opens the message board. (Should only show when logged in)">Message board</a></li>
+              <li id="NewUserLink" class="nav-item"><a class="nav-link" href="newuser.html" title="Is exactly what you think it is. (Show when NOT logged in only)">New user</a></li>
+              <li id="LoginLink" class="nav-item"><a class="nav-link" href="login.html" title="Is exactly what you think it is. (Show when NOT logged in only)">Log in</a></li>
+              <li id="aboutLink" class="nav-item"><a class="nav-link" href="about.html" title="learn about the project design">About</a></li>
+            </ul>
+          </div>
+          <h2 id="LoginMsg"></h2>
+          <input id="LogoutBtn" type="button" onclick="logout();" value="logout" class="btn btn-primary" />
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- debug control I used to understand what the animation was doing before implementing. -->
+      <!-- <input type="button" onclick="debugCalendarAnimation();" value="Test calendar animation" class="btn btn-warning" /> -->
+
+        
+        <!-- a calendar is always a 7 x 6 grid, since the structure is always the same, use a table -->
+        <table id="CalendarTable" class="table table-dark">
+          <caption id="CalendarMonthYear"><input type="button" style="float:left;background-color: inherit;border:none;" value="⬅️" onclick="showPreviousMonth();" /> <span id="displayYearMonth"></span> <input style="float:right;background-color: inherit;border:none;" type="button" value="➡️" onclick="showNextMonth();" /> </caption>
+          <!-- header (weekday names) -->
+          <thead id="thead">
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thur</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+<!-- The calendar itself, in it's highest esteemed regards 📅👑 -->
+          <tbody id="tbody">
+            <tr id="row1">
+              <td class="sunday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="monday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="tuesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="wednesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="thursday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="friday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="saturday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+            </tr>
+            <tr id="row2">
+              <td class="sunday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="monday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="tuesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="wednesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="thursday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="friday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="saturday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+            </tr>
+            <tr id="row3">
+              <td class="sunday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="monday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="tuesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="wednesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="thursday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="friday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="saturday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+            </tr>
+            <tr id="row4">
+              <td class="sunday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="monday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="tuesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="wednesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="thursday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="friday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="saturday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>  
+            </tr>
+            <tr id="row5">
+              <td class="sunday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="monday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="tuesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="wednesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="thursday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="friday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="saturday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+            </tr>
+            <tr id="row6">
+              <td class="sunday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="monday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="tuesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="wednesday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="thursday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="friday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+              <td class="saturday">
+                <div class="dayNumberBox"></div>
+                <input type="button" value="➕" onclick="addNewEvent(this);" />
+                <ul class="itemList"></ul>
+                <ul class="reminderList"></ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+     <!-- Pop up modal for displaying Add new calendar item -->
+
+     <div id="popUpContainer" class="d-none">
+      
+      <!-- <div id="selectedDt"></div> -->
+      <fieldset style="border-style:groove;">
+        <input type="button" value="❌" onclick="closePopup();" style="float:right;" />
+        <h1 id="dateHeading"></h1>
+        
+        <legend>Create new calendar item</legend>
+
+        <label for="selectCalItemType">Item type:</label>
+        <select id="selectCalItemType" onchange="CalItemTypeChanged()" class="d-block mb-2">
+          <option value="r" selected>Reminder item</option>
+          <option value="c">Completed item</option>
+        </select>
+
+        <div id="divReminderTime">
+          <label for="reminderTime">Time to remind:</label>
+          <input id="reminderTime" type="time" placeholder="reminder time" class="form-control w-50 d-block mb-2" />
+        </div>
+
+        <label for="txtDayItem">Day item text:</label>
+        <input id="txtDayItem" type="text" maxlength="40" placeholder="take trash out, etc" class="form-control w-50 d-block mb-2">
+ 
+        <input type="button" value="create calendar item" onclick="createNewCalItem();" class="btn btn-primary" />
+
+      </fieldset>
+
+     </div>
+
+    </main>
+
+    <footer>Copyright ™️Swanky boi productions©️😎 </footer>
+
+</body>
+
+</html>
