@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+<!--Website Name: My Calendar 📅
+    Author: Eric Miller
+    Date:   08/26/26
+    Filename: Test.html  (Provides template)-->
+    <link rel="icon" type="image/x-icon" href="Images/Icons/favicon.png" />
+    <title>My Calendar</title>  
+    <!-- External resources -->
+    <script src="ExternalResources/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="ExternalResources/bootstrap.min.css" />
+
+    <!-- Global JS files, for cross page behavior used by the entire site as a whole. -->
+    <script defer src="JS/global.js" type="text/javascript"></script>
+    <script defer src="JS/animations.js" type="text/javascript"></script>
+    <!-- global styles -->
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/animations.css" />
+
+    <!-- page specific resources (if any) -->
+    <link rel="stylesheet" href="CSS/index.css" />
+</head>
+
+<body id="body">
+<!-- <aside>options controls? (Toggle elements, or change style)</aside> -->
+ 
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html" title="Logo branding, takes you to home page when clicked.">My Calendar 📅</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul id="MainNav" class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li id="MyCalendarLink" class="nav-item"><a class="nav-link" href="calendar.html" Title="Opens your calendar. (Should only show when logged in)">Go to calendar</a></li>
+              <li id="MessageBoardLink" class="nav-item"><a class="nav-link" href="messageboard.html" title="Opens the message board. (Should only show when logged in)">Message board</a></li>
+              <li id="NewUserLink" class="nav-item"><a class="nav-link" href="newuser.html" title="Is exactly what you think it is. (Show when NOT logged in only)">New user</a></li>
+              <li id="LoginLink" class="nav-item"><a class="nav-link" href="login.html" title="Is exactly what you think it is. (Show when NOT logged in only)">Log in</a></li>
+              <li id="aboutLink" class="nav-item"><a class="nav-link" href="about.html" title="learn about the project design">About</a></li>
+            </ul>
+          </div>
+          
+        </div>
+        <input id="LogoutBtn" type="button" onclick="logout();" value="logout" class="btn btn-primary" />
+      </nav>
+    </header>
+
+<main>
+  <h1 class="text-center">Home page (Help & FAQ)</h1>
+  <h2 id="LoginMsg"></h2>
+<!-- collapse buttons allow the user to dynamically control the content on the page. -->
+  <h1><input type="button" data-bs-target="#FirstTimeFAQList" data-bs-toggle="collapse" class="headingButton" value="First time user FAQ" title="click to expand/collapse" /></h1>
+  <!-- used a description list since it makes the most sense for an FAQ -->
+  <dl id="FirstTimeFAQList" class="collapse">
+    <dt>What is this website? 🤔</dt>
+    <dd>This website is the coolest non-commercial calendar you will ever use.</dd>
+
+    <dt>Can you make it spin? 🤸</dt>
+    <dd<q>Yes I can!</q> click <input type="button" onclick="makeItSpin('body');" value="here" class="btn btn-primary" /></dd>
+
+    <dt>What are the website's main features?</dt>
+    <dd>The websites main features are the calendar and the message board. (Specific details are on the <a href="about.html">about page</a>)</dd>
+
+    <dt>Where did you get that funk from? 🎶</dt>
+    <dd>I got the funk from a royalty free music website. (It plays after you login and navigate to the calendar)</dd>
+    <dd><a href="https://pixabay.com/music/">pixabay.com/music</a></dd>
+
+    <dt>Are these questions really frequently asked?</dt>
+    <dd>Yes, they are. I verified it with me, myself, and I.</dd>
+  </dl>
+
+<!-- collapse buttons allow the user to dynamically control the content on the page. -->
+<h1><input type="button" data-bs-target="#GettingStartedList" data-bs-toggle="collapse" class="headingButton" value="Getting started..." title="click to expand/collapse" /></h1>
+<!-- Getting started are steps, like 1,2,3 so an <ol></ol> works perfectly here -->
+<ol id="GettingStartedList" class="collapse">
+  <li>Create a <a href="newuser.html">New User</a> account</li>
+  <ol>
+    <li>if you don't create an account, you can't use the calendar or message board.</li>
+  </ol>
+  <li>after creating an account, <a href="login.html">login</a></li>
+  <li>Once you have created an ccount, you can use the <a href="calendar.html">calendar</a> and <a href="messageboard.html">Message board</a></li>
+</ol>
+
+
+
+</main>
+
+<footer> Copyright ™️Swanky boi productions©️😎 </footer>
+
+</body>
+
+</html>
