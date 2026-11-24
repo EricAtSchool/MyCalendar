@@ -1,0 +1,38 @@
+/* This page is seperated into 2 categories... */
+/* 1) keyframes are animation definitions */
+/* 2) Classes below bobby seperator are programatically added to the page in order to call the animation. */
+
+/* 1) Animation definitions */
+/* Imitates a real life bottom right corner grab and lift of a physical calendar */
+@keyframes diagonalPageGrabAnimation {
+    0% {
+    }
+    100% {
+        transform: translate(-120%, -120%)
+        rotate(-60deg)
+        skewX(-100deg);
+    }
+}
+/* for humor */
+@keyframes makeitspin {
+    0% {
+        transform:rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*----------------------------------Bobby Seperator---------------- */
+
+/* 2) classes to call animations programatically */
+.pageLift {
+animation: diagonalPageGrabAnimation 2s ease-out;
+box-shadow: 20px 20px 30px rgba(0,0,0,0.3);
+}
+
+.makeItSpin {
+    animation: makeitspin 2s;
+}
+

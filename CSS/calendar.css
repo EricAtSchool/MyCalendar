@@ -1,0 +1,136 @@
+        /* <!-- a calendar is a 7 x 6 css grid -->
+
+        Using  a table allows the structure to remain intact
+
+        <table id="CalendarTable" class="table table-dark">
+          <caption id="CalendarMonthYear">September 2026</caption>
+          <thead>
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thur</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="row1">
+              <td class="sunday"></td>
+              <td class="monday"></td>
+              <td class="tuesday"></td>
+              <td class="wednesday"></td>
+              <td class="thursday"></td>
+              <td class="friday"></td>
+              <td class="saturday"></td>
+            </tr> */
+
+/* A table that is always centered, and with a little breathing room on each side. */
+
+table#CalendarTable {
+    width:90%;
+    margin:auto;
+}
+table {
+  min-height:75vh;
+  max-height:75vh;
+}
+
+/* Tells the code how to place the text on top (IE: Janurary 2026) */
+table#CalendarTable caption {
+    color:#fff;
+    font-size:3rem;
+    background:radial-gradient(#f00,#000);
+    border-radius: 5px;
+    font-style:italic;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    caption-side: top;
+}
+
+/* make the table have borders on each day cell (dark mode) */
+table.table-dark tr td {
+  padding:0px;
+  border:3px solid white;
+}
+
+/* Day # holder, make it blend seamlessly with the border above (dark mode) */
+table.table-dark tr td div.dayNumberBox {
+  border-right: 3px solid white;
+  border-bottom:3px solid white;
+  display: inline-block;
+  padding:0.2rem;
+  font-weight:bold;
+background-color:#191970;
+color:#fff;
+}
+
+/* style the login message */
+h2#LoginMsg {
+  background-color:#004FB8;
+  color:#fff;
+  padding:5px;
+  margin-right:10px;
+  border-radius: 10px;
+}
+
+.itemList {
+ border:none;
+}
+
+/* Use the time as the list marker */
+.reminderList li::marker {
+    content:attr(data-time);
+    font-weight:bold;
+}
+/* tell the list to stay inside the box. Bad list! 😡 */
+.reminderList {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+/* 3 styles below are for coloring the tiles on the calendar */
+tbody > tr > td.prevMonth {
+  background-color:#212529;
+}
+tbody > tr > td.curMonth {
+    background-color:#004FB8;
+}
+tbody > tr > td.nextMonth {
+  background-color:#212529;
+}
+
+/* For the + icons */
+tbody > tr > td input {
+float:right;
+}
+
+/* The pop up container is centered in the middle of the screen, no matter how big the device is. */
+
+
+@media screen and (min-width:783px) {
+#popUpContainer {
+  position: absolute;
+  border: 1px solid white;
+  top: 25%;
+  bottom:25%;
+  left: 25%;
+  right:25%;
+  background-color:#6296C9;
+  color:#fff;
+  height:50vh;
+}
+}
+
+@media screen and (max-width:782px) {
+  #popUpContainer {
+      position: absolute;
+      border: 1px solid white;
+      top: 25%;
+      background-color: #6296C9;
+      color: #fff;
+      width: 90%;
+      left: 5%;
+  }
+}

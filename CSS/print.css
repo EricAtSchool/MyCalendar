@@ -1,0 +1,9 @@
+@media print {
+    @page {
+        widows:0;
+        orphans: 0;
+        size: 11in 9in;        /* width height */
+        page-orientation: landscape; /* or landscape */
+        margin: 2.54cm;  
+    }
+}

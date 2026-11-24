@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/* styles here are global (should be used on every single page) */
+/* colors */
+body {
+    background-color:#004FB8;
+    color:#fff;
+}
+/* This color meets 2.1 AA contrast accessibility guidelines */
+main {
+    color: #3F2591;
+    background-color:#FAB818;
+    border-radius:10px;
+}
+aside {
+    background-color:#B82818;
+}
+header {
+    background-color:#B82818;
+}
+.Error {
+    color:#dd0000;
+}
+/* colors */
+
+
+/* force the page to always have a set amount of room for each element (Footer is never cut off, etc) */
+header {
+    min-height:8vh;
+}
+main {
+    min-height:85vh;
+}
+footer {
+    min-height:2vh;
+}
+/* force the page to always have a set amount of room for each element (Footer is never cut off, etc) */
+
+
+/* font-sizes, etc */
+ul#MainNav {
+    padding-left:40px;
+    font-size:1.4rem;
+}
+.Error {
+    font-weight:bold;
+    font-size:1.4rem;
+}
+
+
+
+/* screen  size settings */
+/* show icons only on collapsed mode, they conflict with horizontal bootstrap styles */
+@media (max-width: 991px) {
+    /* list item that has specified link href */
+    ul#MainNav li:has(a[href="calendar.html"]) {
+        list-style:'📅';
+    }
+    /* list item that has specified link href */
+    ul#MainNav li:has(a[href="index.html"]) {
+        list-style: '🏠';
+    }
+    /* list item that has specified link href */
+    ul#MainNav li:has(a[href="messageboard.html"]) {
+        list-style:'💬';
+    }
+    /* list item that has specified link href */
+    ul#MainNav li:has(a[href="newuser.html"]) {
+        list-style:'👤';
+    }
+    /* list item that has specified link href */
+    ul#MainNav li:has(a[href="about.html"]) {
+        list-style:'ℹ️';
+    }
+    /* list item that has specified link href */
+    ul#MainNav li:has(a[href="login.html"]) {
+        list-style:'🔐';
+    }
+    
+
+}
+
+/* need to undo the bootstrap defaults that override the normal look of <fieldset> */
+main fieldset {
+    min-width: revert; 
+    padding: revert; 
+    margin: revert;
+    border: revert;
+    border-width:5px;
+    border-radius: 20px;
+    border-style:double;
+    border-color:#004FB8;
+}
+/* need to undo the bootstrap defaults that override the normal look of <fieldset> */
+main legend {
+    float: revert;
+    width: revert;
+    padding: revert; 
+    margin-bottom: revert; 
+    line-height: revert;
+    font-size: revert; 
+}
+
+div#loginMsgFunny {
+    text-align: center;
+    margin:auto;
+    width:100%;
+    height:100%;
+}

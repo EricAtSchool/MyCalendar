@@ -1,0 +1,74 @@
+main {
+    display:grid;
+}
+/* submit button style */
+#submitMsg {
+border: 1px solid black;
+border-radius: 20px;
+background:rgb(13, 175, 13);
+color:#fff;
+}
+
+#submitMsg:hover, #submitMsg:focus {
+    box-shadow: 5px 5px #000;
+}
+
+
+/* each box is a message board post, make sure it doesn't break it's container */
+.msgItem {
+    border: 1px solid black;
+    overflow-wrap: anywhere;
+}
+
+/* the text box */
+#msgInput {
+background-color:rgb(238, 232, 232);
+}
+
+
+/* style rule for all screen sizes */
+#divMsgOutput {
+       height: 59vh;
+       display: grid;
+       overflow:auto;
+
+}
+
+/* show 4 tiles on extra large devices */
+@media screen and (min-width:1001px) {
+    #divMsgOutput {
+       grid-template-columns: 1fr 1fr 1fr 1fr;
+       /* there could be 1 or 100 items */
+       grid-template-rows: auto;
+       grid-gap: 5px;
+       row-gap: 5px;
+    }
+}
+
+
+/* show 3 tiles on medium devices */
+@media screen and (min-width:880px) and (max-width:1000px) {
+    /* The area where we will show the messages */
+    #divMsgOutput {
+       grid-template-columns: 1fr 1fr 1fr;
+       /* there could be 1 or 100 items */
+       grid-template-rows: auto;
+       grid-gap: 5px;
+       row-gap: 5px;
+    }
+}
+
+/* show 1 column on small devices */
+@media screen and (max-width:779px) {
+       #divMsgOutput {
+       grid-template-columns: 1fr;
+       /* there could be 1 or 100 items */
+       grid-template-rows: auto;
+       grid-gap: 5px;
+       row-gap: 5px;
+    } 
+}
+
+.titleItem {
+    font-size:1.4rem;
+}

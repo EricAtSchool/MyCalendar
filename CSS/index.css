@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* target nested lists to make them A B C not 1 2 3 */
+ol ol {
+list-style-type: lower-alpha;
+}
+
+/* for the buttons that act as headings on the home page. */
+.headingButton {
+    cursor:pointer;
+    border-radius:10px;
+    background-color:aqua;
+}
+/* the heading that contains a button should have a border bottom */
+h1:has( > input) {
+border-bottom:5px solid white;
+}
+
+/* Makes the button look like a spinner button */
+input[onclick="makeItSpin('body');"] {
+    border-radius: 100px;
+    border-style: ridge;
+    border-width: 10px;
+}
+
+#FirstTimeFAQList dt {
+    font-size:2rem;
+}
